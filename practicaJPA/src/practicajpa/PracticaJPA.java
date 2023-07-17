@@ -4,6 +4,8 @@
  */
 package practicajpa;
 
+import practicajpa.servicios.ServiciosGenerales;
+
 /**
  *
  * @author sasa
@@ -14,6 +16,10 @@ public class PracticaJPA {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        ServiciosGenerales serviciosGenerales =  new ServiciosGenerales();
+        serviciosGenerales.cargarBase();
+        serviciosGenerales.consultas();
         // TODO code application logic here
     }
     

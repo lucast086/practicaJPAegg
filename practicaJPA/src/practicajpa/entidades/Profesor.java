@@ -6,6 +6,8 @@ package practicajpa.entidades;
 
 import java.util.Set;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -13,6 +15,16 @@ import javax.persistence.Table;
  *
  * @author sasa
  */
+@NamedQueries({
+@NamedQuery(
+        name="Profesor.buscarTodos",
+        query="SELECT p FROM Profesor p"
+),
+@NamedQuery(
+        name="Profesor.buscarPorId",
+        query="SELECT p FROM Profesor p WHERE p.id = :id"
+)
+})
 @Entity
 @Table(name="profesores")
 public class Profesor extends Persona{

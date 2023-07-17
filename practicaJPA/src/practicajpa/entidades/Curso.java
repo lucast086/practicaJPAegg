@@ -17,6 +17,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,6 +28,10 @@ import practicajpa.enums.DiaDeLaSemana;
  * Curso(id, nombre, dia, horaInicio, horaFin, cupo)
  * @author sasa
  */
+@NamedQueries({
+    @NamedQuery(name="Curso.findAll", query="SELECT a FROM Curso a"),
+    @NamedQuery(name="Curso.findById", query="SELECT a FROM Curso a WHERE a.id = :id")
+})
 
 @Entity
 @Table(name="cursos")
@@ -125,5 +131,11 @@ public class Curso {
     public void setAlumnos(Set<Alumno> alumnos) {
         this.alumnos = alumnos;
     }
+
+    @Override
+    public String toString() {
+        return "Curso{" + "id=" + id + ", nombre=" + nombre + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + '}';
+    }
+   
 
 }

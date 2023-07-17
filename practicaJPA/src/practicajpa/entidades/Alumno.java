@@ -9,12 +9,19 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
  *
  * @author sasa
  */
+
+@NamedQuery(
+        name="Alumno.listarTodos",
+        query="SELECT a FROM Alumno a" 
+)
 
 @Entity
 @Table(name="alumnos")
